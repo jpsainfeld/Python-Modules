@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ueDevice Regression maximus_1.3.72_Release</title>
+		 <link rel = "stylesheet"
+			type = "text/css"
+			href = "http://us03mt01/Automation/css/ueStyle.css" />
+        <meta name="generator" content="TestRunner 0.0.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase_%(run_index)s(level, run_index) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+		if (tr.dataset.run == "%(run_index)s") {
+			console.debug("tr=",tr);
+			console.debug(id);
+			console.debug(id.substr(0,2));
+			/* Handle case of FAIL */
+				if (id.substr(0,2) == 'ft') {
+					if (level < 1) {
+						tr.className = 'hiddenRow';
+					}
+					else {
+						tr.className = '';
+					}
+				}
+			/* Handle the case of PASS */
+				if (id.substr(0,2) == 'pt') {
+					if (level > 1) {
+						tr.className = '';
+					}
+					else {
+						tr.className = 'hiddenRow';
+					}
+				}		
+		}
+	}
+}
+
+
+/* Show the Class Detail */
+function showClassDetail_%(run_index)s(cid, count, run_index) {
+	var id_list = Array(count);
+	var toHide = 1;
+	for (var i = 0; i < count; i++) {
+		tid0 = 't_' + run_index + '_' + cid.substr(1) + '.' + (i+1);
+		tid = 'f' + tid0;
+		tr = document.getElementById(tid);
+		if (!tr) {
+			tid = 'p' + tid0;
+			tr = document.getElementById(tid);
+		}
+		id_list[i] = tid;
+		if (tr.className) {
+			toHide = 0;
+		}
+	}
+	for (var i = 0; i < count; i++) {
+		tid = id_list[i];
+		if (toHide) {
+			/*document.getElementById('div_'+tid).style.display = 'none'; */
+
+			document.getElementById(tid).className = 'hiddenRow';
+		}
+		else {
+			document.getElementById(tid).className = '';
+		}
+	}
+}
+
+/* Show the Test Detail */
+function showTestDetail_%(run_index)s(div_id, run_index){
+	var details_div = document.getElementById(div_id);
+	var displayState = details_div.style.display;
+	// alert(displayState)
+	if (displayState != 'block' ) {
+		displayState = 'block';
+		details_div.style.display = 'block';
+	}
+	else {
+		details_div.style.display = 'none';
+	}
+}
+
+/* Html Escape */
+
+function html_escape_%(run_index)s(s) {
+	s = s.replace(/&/g,'&amp;');
+	s = s.replace(/</g,'&lt;');
+	s = s.replace(/>/g,'&gt;');
+	return s;
+}
+
+--></script>
+
+%(heading)s
+%(report)s
+%(ending)s
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<! --> 
+<p id='show_detail_line'> Run: %(run_index)s Show
+<button type="button" onclick='javascript:showCase_%(run_index)s(0, %(run_index)s )'>Summary</button>
+<button type="button" onclick='javascript:showCase_%(run_index)s(1, %(run_index)s )'>Failed</button>
+<button type="button" onclick='javascript:showCase_%(run_index)s(2, %(run_index)s )'>All</button>
+</p>
+
+<table id='result_table'>
+<!  Describe the various columns -->
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+
+<! Describe the Header of the Report -->
+<tr id='header_row' data-run="%(run_index)s">
+	<td>Test Group/Test case</td>
+	<td>Count</td>
+	<td>Pass</td>
+	<td>Fail</td>
+	<td>Error</td>
+	<td>View</td>
+</tr>
+%(test_list)s
+<tr id='total_row' data-run="%(run_index)s">
+	<td>Total</td>
+	<td>%(count)s</td>
+	<td>%(Pass)s</td>
+	<td>%(fail)s</td>
+	<td>%(error)s</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id='percent_row' data-run="%(run_index)s">
+	<td>Success Percentage</td>
+	<td>%(percent)s</td>
+</tr>
+</table>

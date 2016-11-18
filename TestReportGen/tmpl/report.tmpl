@@ -1,0 +1,32 @@
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'> Summary </a>
+<a href='javascript:showCase(1)'>Failed </a>
+<a href='javascript:showCase(2)'>All </a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+	<td>Test Group/Test case</td>
+	<td>Count</td>
+	<td>Pass</td>
+	<td>Fail</td>
+	<td>Error</td>
+	<td>View</td>
+</tr>
+%(test_list)s
+<tr id='total_row'>
+	<td>Total</td>
+	<td>%(count)s</td>
+	<td>%(Pass)s</td>
+	<td>%(fail)s</td>
+	<td>%(error)s</td>
+	<td>&nbsp;</td>
+</tr>
+</table>
